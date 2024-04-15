@@ -12,7 +12,8 @@ body {
     align-items: center;
     background-color: #FFF2E1;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 .container {
@@ -41,6 +42,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 form div {

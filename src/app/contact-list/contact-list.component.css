@@ -1,6 +1,8 @@
 
 * {
     font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -12,7 +14,8 @@ body {
     align-items: center;
     background-color: #FFF2E1;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 .container {
@@ -38,7 +41,7 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     background-color: #EAD8C0;
-    gap: 30p;
+    gap: 30px;
     
     
 }
@@ -90,14 +93,16 @@ a {
 ul{
     display: flex;
     width: 90%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+    
 }
 span {
     font-weight: bold;
     background-color: #FFF2E1;
-    width: 200px;
+    min-width: 200px;
     text-align: center;
     align-self: center;
     padding: 10px;
@@ -109,10 +114,12 @@ li {
     align-items: center;
     list-style: none;
     border: 1px solid rgb(90, 80, 33);
+    gap: 10px;
     border-radius: 8px;
     padding: 10px;
     margin: 10px;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     display: flex;
     justify-content: space-between;
 }
@@ -124,13 +131,15 @@ li {
 
 @media screen and (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 80%;
         font-size: 12px;
         margin: 25% 0 25% 0;
     }
 
     ul {
-        width: 80%;
+        width: 90%;
+        display: flex;
+        
         
         
     }
@@ -138,6 +147,37 @@ li {
     li {
         align-items: center;
         flex-direction: column;
+        
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    li span {
+        align-self: center;
+        text-align: start;
+    }
+    
+}
+
+/* media querie para notebook */
+
+@media screen and (min-width:1024px)and ( max-width: 1368px) {
+    .container {
+        width: 75%;
+        font-size: 12px;
+        margin: 25% 0 25% 0;
+    }
+
+    ul {
+        width: 90%;
+        align-self: center;
+        
+        
+    }
+
+    li {
+        align-items: center;
+        min-width: 100%;
         gap: 10px;
     }
 
@@ -147,3 +187,4 @@ li {
     }
     
 }
+
