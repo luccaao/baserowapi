@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -44,5 +45,10 @@ export class ContactListComponent implements OnInit {
       .catch(error => {
         console.error('Erro ao excluir contato:', error);
       });
+  }
+
+  //funcao para caso o usuario nao tenha nenhum contato
+  hasContacts(): boolean {
+    return this.contacts.length > 0;
   }
 }

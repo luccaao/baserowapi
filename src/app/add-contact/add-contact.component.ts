@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-contact',
@@ -12,7 +13,7 @@ export class AddContactComponent implements OnInit {
     phone: ''
   };
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,8 @@ export class AddContactComponent implements OnInit {
     this.contactService.addContact(this.contact)
       .then(response => {
         console.log('Contato adicionado com sucesso:', response.data);
+        // Redirecionar para a lista de contatos
+        this.router.navigate(['/']);
         // Limpar o formulário após adicionar
         this.contact = { name: '', phone: '' };
       })

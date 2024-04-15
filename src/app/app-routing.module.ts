@@ -5,21 +5,17 @@ import { AddContactComponent } from './add-contact/add-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', 
-  component: ContactListComponent }
-  ,
+  { path: '', pathMatch: 'full', redirectTo: 'contact-list'},
 
-  { path: 'add-contact', pathMatch: 'full', 
-  component: AddContactComponent 
-  },
+  { path: 'add-contact',  component: AddContactComponent },
+  
+  { path: 'contact-list',  component: ContactListComponent  },
 
-  { path: 'edit-contact/:id', 
-  component: EditContactComponent 
-}
+  { path: 'edit-contact/:id', component: EditContactComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

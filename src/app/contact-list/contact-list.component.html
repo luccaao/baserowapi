@@ -1,12 +1,26 @@
-
-<div class="container">
-    <h2>Lista de Contatos</h2>
-    <a routerLink="/add-contact">Adicionar Contato</a>
-    <ul>
+<body>
+  <div class="container">
+    <div class="topo">
+      <h2>Contatos</h2>
+      <a routerLink="/add-contact"><img src="../../assets/imagens/plus.png" alt=""></a>
+    </div>
+    <ul *ngIf="contacts.length > 0, else semContatos">
       <li *ngFor="let contact of contacts">
-        {{ contact.nome }} - {{ contact.contato }}
-        <button (click)="deleteContact(contact.id)">Excluir</button>
-        <a routerLink="/edit-contact/{{ contact.id }}">Editar</a>
+        Nome
+        <span for="">{{ contact.nome }}</span>
+        Telefone
+        <span for=""> {{ contact.contato }}</span>
+
+        <div class="acoes">
+            <a (click)="deleteContact(contact.id)"><img src="../../assets/imagens/icone-excluir.png" alt=""></a>
+            <a routerLink="/edit-contact/{{ contact.id }}"><img src="../../assets/imagens/icone-editar.png" alt=""></a>
+        </div>
+
       </li>
     </ul>
-</div>
+  </div>
+</body>
+
+<ng-template #semContatos>
+  <div class="vazio"><p>SEM CONTATOS CADASTRADOS</p> <img src="../../assets/imagens/vazio.png" alt=""></div>
+</ng-template>
