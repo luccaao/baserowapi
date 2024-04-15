@@ -154,3 +154,29 @@ li {
     justify-content: space-between;
 }
 
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        font-size: 12px;
+        margin: 25% 0 25% 0;
+    }
+
+    ul {
+        width: 80%;
+        
+        
+    }
+
+    li {
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    li span {
+        align-self: center;
+        text-align: start;
+    }
+    
+}
