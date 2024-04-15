@@ -1,0 +1,13 @@
+<p>add-contact works!</p>
+
+<h2>Adicionar Contato</h2>
+<form (submit)="addContact()">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="contact.name" required>
+  <br>
+  <label for="phone">Telefone:</label>
+  <input type="text" id="phone" name="phone" [(ngModel)]="contact.phone" required>
+  <br>
+  <button type="submit">Adicionar</button>
+</form>
+
