@@ -173,6 +173,16 @@ li {
 }
 
 @media screen and (max-width: 768px) {
+    .topo {
+        border-radius: 15px;
+        margin: 10px 10px 10px 10px;
+        flex-direction: column;
+    }
+
+    .filtro {
+        margin: 10px 0 20px 0;
+    }
+
     .container {
         width: 80%;
         font-size: 12px;
