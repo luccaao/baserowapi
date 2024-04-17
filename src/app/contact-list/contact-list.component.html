@@ -1,15 +1,20 @@
 <body>
   <div class="container">
+    
     <div class="topo">
       <h2>Contatos</h2>
+      <div class="filtro">
+        <input type="text" placeholder="Buscar por nome ou telefone" [(ngModel)]="searchTerm">
+        <button (click)="filterList()">FILTRAR</button>
+      </div>
       <a routerLink="/add-contact"><img src="../../assets/imagens/plus.png" alt=""></a>
     </div>
-    <ul *ngIf="contacts.length > 0, else semContatos">
-      <li *ngFor="let contact of contacts">
+    <ul *ngIf="filteredContacts.length > 0; else semContatos">
+      <li *ngFor="let contact of filteredContacts">
         Nome
-        <span for="">{{ contact.nome }}</span>
+        <span>{{ contact.nome }}</span>
         Telefone
-        <span for=""> {{ contact.contato }}</span>
+        <span>{{ contact.contato }}</span>
 
         <div class="acoes">
             <a (click)="deleteContact(contact.id)"><img src="../../assets/imagens/icone-excluir.png" alt=""></a>
@@ -19,8 +24,8 @@
       </li>
     </ul>
   </div>
-</body>
 
-<ng-template #semContatos>
-  <div class="vazio"><p>SEM CONTATOS CADASTRADOS</p> <img src="../../assets/imagens/vazio.png" alt=""></div>
-</ng-template>
+  <ng-template #semContatos>
+    <div class="vazio"><p>SEM CONTATOS CADASTRADOS</p> <img src="../../assets/imagens/vazio.png" alt=""></div>
+  </ng-template>
+</body>

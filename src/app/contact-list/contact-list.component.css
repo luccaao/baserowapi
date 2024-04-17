@@ -18,6 +18,8 @@ body {
     height: auto;
 }
 
+
+
 .container {
     
     background-color: #D1BB9E;
@@ -80,6 +82,47 @@ a {
 .topo h2 img {
     width: 100px;
 }
+
+.filtro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+
+}
+
+.filtro input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #A79277;
+    margin: 10px;
+    width: 80%;
+
+}
+
+.filtro button {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #A79277;
+    color: white;
+    border: 1px solid white;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.filtro button:hover {
+    background-color: #FFF2E1;
+    color: #000000;
+    border: 1px solid #A79277;
+}
+
+
+
+
 
 .topo  {
     background-color: #A79277;

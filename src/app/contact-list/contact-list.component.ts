@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 
-
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -9,6 +8,8 @@ import { ContactService } from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
   contacts: any[] = [];
+  filteredContacts: any[] = [];
+  searchTerm: string = '';
 
   constructor(private contactService: ContactService) { }
 
@@ -19,22 +20,15 @@ export class ContactListComponent implements OnInit {
   loadContacts() {
     this.contactService.getAllContacts()
       .then(response => {
-        console.log('Contatos carregados com sucesso:', response.data.results);
-        
-        
         if (Array.isArray(response.data.results)) {
-          
           this.contacts = response.data.results;
+          this.applyFilter(); 
         } else {
-          
           this.contacts.push(response.data.results);
-          console.log('Contatos carregados com sucesso:', response.data.results);
-          
+          this.applyFilter(); 
         }
       })
-      .catch(error => {
-        console.error('Erro ao carregar contatos:', error);
-      });
+      
   }
 
   deleteContact(id: number) {
@@ -42,12 +36,29 @@ export class ContactListComponent implements OnInit {
       .then(response => {
         this.loadContacts();
       })
-      .catch(error => {
-        console.error('Erro ao excluir contato:', error);
-      });
+      
   }
 
-  //funcao para caso o usuario nao tenha nenhum contato
+ 
+
+  filterList() {
+    this.applyFilter();
+  }
+
+  applyFilter() {
+    const searchTrimmed = this.searchTerm.trim().replace(/\s/g, '').replace(/-/g, '');
+    if (searchTrimmed !== '') {
+      this.filteredContacts = this.contacts.filter(contact =>
+        contact.nome.toLowerCase().includes(this.searchTerm.trim().toLowerCase()) || 
+        contact.contato.replace(/\s/g, '').replace(/-/g, '').toLowerCase().includes(searchTrimmed.toLowerCase())
+      );
+    } else {
+      this.filteredContacts = this.contacts;
+    }
+  }
+  
+
+  
   hasContacts(): boolean {
     return this.contacts.length > 0;
   }

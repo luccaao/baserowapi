@@ -27,6 +27,11 @@ body {
 }
 
 
+
+
+
+
+
 h2 {
     text-align: center;
     color: white;
@@ -59,33 +64,54 @@ input {
 
 
 
-form button {
-    margin: 0;
-    padding: 0;
-    height: 50px;
-    border-radius: 8px;
-    width: 25%;
-    align-self: center;
-    background-color: #A79277;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-    border: none;
-   
-}
-
-form button:hover {
-    background-color: #FFF2E1;
-    color: #A79277;
-}
-
 
 
 
 label {
     color: #FFF2E1;
     text-transform: uppercase;
+}
+
+.mensagem__erro {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+
+}
+
+
+
+.botao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    background-color: #A79277;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    align-self: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 25%;
+
+}
+
+.botao__desabilitado{
+    background-color: #5f5f5f;
+    color: white;
+    font-weight: bold;
+    cursor: not-allowed;
+    transition: .3s;
+    border: none;
+    margin-top: 10px;
+    width: 25%;
+    align-self: center;
+    height: 50px;
+    border-radius: 8px;
+
 }
 
 
@@ -102,6 +128,8 @@ label {
     border-radius: 50%;
 
 }
+
+
 
 .topo a img:hover {
     transform: scale(1.1);

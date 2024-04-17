@@ -1,25 +1,69 @@
-
 <body>
-  
   <div class="container">
     <h2>Adicionar novo Contato</h2>
-    <form (submit)="addContact()">
-
+    <form [formGroup]="formulario" (submit)="addContact()">
       <div>
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" [(ngModel)]="contact.name" required placeholder="Digite o nome do contato">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          formControlName="name"
+          required
+          placeholder="Digite o nome do contato"
+        />
       </div>
 
-      <br>
+      <div
+        class="mensagem__erro"
+        *ngIf="formulario.get('name')?.errors?.['required'] && formulario.get('name')?.touched"
+      >
+        **Nome é obrigatório**
+      </div>
+
+      <div
+        class="mensagem__erro"
+        *ngIf="formulario.get('name')?.errors?.['minlength']"
+      >
+        **Nome precisa ter no minimo 3 letras**
+      </div>
+
+      <br />
 
       <div>
         <label for="phone">Telefone:</label>
-        <input type="text" id="phone"  name="phone" [(ngModel)]="contact.phone" required placeholder="Digite o telefone.. ex : 997374212">
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          formControlName="phone"
+          required
+          placeholder="Digite o telefone.. ex : 997374212"
+        />
       </div>
 
-      <br>
-      <button type="submit">Adicionar</button>
+      <div
+        class="mensagem__erro"
+        *ngIf="formulario.get('phone')?.errors?.['required'] && formulario.get('phone')?.touched"
+      >
+        **Contato é obrigatório**
+      </div>
+
+      <div
+        class="mensagem__erro"
+        *ngIf="formulario.get('phone')?.errors?.['minlength']"
+      >
+        **Contato precisa ter no minimo 9 caracteres**
+      </div>
+
+      <br />
+
+      <div class="acoes">
+        <button  type="submit" [ngClass]="habilitarBotao()">Adicionar</button>
+        <button type="button" class="botao" (click)="cancelar()">
+          Cancelar
+        </button>
+      </div>
     </form>
-  
   </div>
 </body>
